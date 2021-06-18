@@ -22,6 +22,7 @@ export const AuthContextProvider = ({ children }) => {
       console.log("logout event");
     });
     netlifyIdentity.on("init", (user) => {
+      setUser({ user });
       setAutharedy(true);
       console.log("init event");
     });
@@ -36,6 +37,7 @@ export const AuthContextProvider = ({ children }) => {
   /////////////////logout function///
   const logout = () => {
     netlifyIdentity.logout();
+    // netlifyIdentity.open();
   };
 
   const context = {
